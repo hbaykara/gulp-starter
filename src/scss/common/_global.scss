@@ -1,0 +1,36 @@
+html {
+  height: -webkit-fill-available;
+}
+
+body {
+  min-height: 100vh;
+  /* mobile viewport bug fix */
+  min-height: -webkit-fill-available;
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+button:active {
+  outline: none;
+  border: none;
+}
+
+button:focus {
+  outline: 0;
+}
+
+a:focus, input:focus, textarea:focus, button:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+i, span, a {
+    display: inline-block;
+}

@@ -1,0 +1,81 @@
+@mixin media($width: "mobil") {
+  @if ($width == "mobil") {
+    // Medium devices (tablets, 768px and up)
+    @media (min-width: 576px) {
+      @content;
+    }
+  } @else if ($width == "tablet") {
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if ($width == "desktop") {
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) {
+      @content;
+    }
+  }@else if ($width == "large") {
+    // Extra large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+/*** Mixins & Default Styles ***/
+@mixin placeHolder($width, $height, $bg, $position) {
+  position: $position;
+	width: $width;
+	height: $height;
+	background: $bg;
+}
+@mixin transPos($top, $right, $bottom, $left,$transX,$transY) {
+	position: absolute;
+	top: $top;
+	left: $left;
+	right: $right;
+	bottom: $bottom;
+	transform: translate($transX, $transY);
+}
+
+//--Browser Hacks----------------------------
+@mixin browser($browser) {
+  @if $browser==edge {
+    @supports (-ms-ime-align: auto) {
+      @content;
+    }
+  }
+
+  @else if $browser==ie10-11 {
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      /* IE 10 - 11 */
+      @content;
+    }
+  }
+
+  @else if $browser==ie9 {
+    @media screen and (min-width: 0\0) and (min-resolution: 0.001dpcm) {
+      /* IE 9 CSS */
+      @content;
+    }
+  }
+
+  @else if $browser==ie {
+    @media screen and (min-width: 0\0) and (min-resolution: +72dpi) {
+      /* IE9+ CSS */
+      @content;
+    }
+  }
+
+  @else if $browser==firefox {
+    @-moz-document url-prefix() {
+      @content;
+    }
+  }
+
+  @else if browser==safari {
+    @media screen and (min-color-index: 0) and(-webkit-min-device-pixel-ratio:0) {
+      @content;
+    }
+  }
+}

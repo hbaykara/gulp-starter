@@ -1,0 +1,17 @@
+@import "./common/variables";
+@import "./common/mixin";
+//Common
+@import "./common/normalize";
+@import "./common/reset";
+@import "./common/global";
+@import "./common/grid";
+// @import "./common/utilities";
+//Header
+@import "./globalheader/header";
+@import "./globalheader/navigation";
+//Pages
+@import "./pages/index";
+//Plugins
+
+//Footer
+@import "./globalfooter/footer";
